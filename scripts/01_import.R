@@ -321,9 +321,11 @@ munic_clean |>
 # Save -------------------------------------------------------------------------------------------
 
 write_csv(munic_clean, "data/munic_clean.csv")
+write_csv(munic_clean, "app/data/munic_clean.csv")
 
 #write_csv(rent_clean_nj, "data/rent_clean_nj.csv")
 
 #write_csv(njgpa_clean, "data/njgpa_clean.csv")
 
 #write_csv(njgpa_clean_nj, "data/njgpa_clean_nj.csv")
+
