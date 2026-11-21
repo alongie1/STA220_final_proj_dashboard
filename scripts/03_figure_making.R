@@ -13,6 +13,13 @@
 
 library(tidyverse)
 
+wakability <- read_csv(
+  "data/Walkability_Score.csv",
+  col_types = cols(
+    
+  )
+)
+
 munic_clean <- read_csv(
   "data/munic_clean.csv",
   col_types = cols(
@@ -235,8 +242,31 @@ atlantic <- viol_crime_per_pop |>
 
 # Expect 16 rows: 4 sections x 4 measures
 viol_crime_per_pop
+#geom_col(data = warren, fill = "#000")+
+#geom_col(data = union, fill = "#F70000")+
+#geom_col(data = sussex, fill = "#2731F5")+
+#geom_col(data = somerset, fill = "#DB00D8")+
+#geom_col(data = salem, fill = "#3DFF62")+
+#geom_col(data = passaic, fill = "#FF970F")+
+#geom_col(data = ocean, fill = "#FFABAB")+
+#geom_col(data = morris, fill = "#107D2D")+
+#geom_col(data = monmouth, fill = "#1CFFFC")+
+#geom_col(data = middlesex, fill = "#FEC7FF")+
+#geom_col(data = mercer, fill = "#ECFF1C")+
+#geom_col(data = hunterdon, fill = "#8500C7")+
+#geom_col(data = hudson, fill = "#8769FF")+
+#geom_col(data = gloucester, fill = "#A63D35")+
+#geom_col(data = essex, fill = "#FAFFA3")+
+#geom_col(data = cumberland, fill = "#00B4BA")+
+#geom_col(data = cape_may, fill = "#A8FFBB")+
+#geom_col(data = camden, fill = "#F7CB65")+
+#geom_col(data = burlington, fill = "#7A7A7A")+
+#geom_col(data = bergen, fill = "#FF6969")+
+#geom_col(data = atlantic, fill = "#ddd")+
 
+#subtitle = "What adding a lane would take: dollars (millions), homes, wetland acres, and years.\nShorter bars are better.",
 fig_10 <- ggplot(viol_crime_per_pop, aes(x = value, y = county)) +
+  facet_wrap(~ measure, scales = "free_x") +
   geom_col(data = warren, fill = "#000")+
   geom_col(data = union, fill = "#F70000")+
   geom_col(data = sussex, fill = "#2731F5")+
@@ -258,10 +288,8 @@ fig_10 <- ggplot(viol_crime_per_pop, aes(x = value, y = county)) +
   geom_col(data = burlington, fill = "#7A7A7A")+
   geom_col(data = bergen, fill = "#FF6969")+
   geom_col(data = atlantic, fill = "#ddd")+
-  facet_wrap(~ measure, scales = "free_x") +
   labs(
     title = "Violent Crimes per 1000 Residents in Each County in Years 2018 to 2020",
-    #subtitle = "What adding a lane would take: dollars (millions), homes, wetland acres, and years.\nShorter bars are better.",
     x = NULL,
     y = NULL,
     caption = "Made-up data for practice. Pine County does not exist."
